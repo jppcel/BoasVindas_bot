@@ -127,8 +127,10 @@ function processMessage($message) {
 
 	if (isset($member_name)) {
 		if ($member_user != 'BoasVindasBot') {
-			$falas = array('Olá', 'Opa', 'Salve salve', 'Fala aí', 'Olá', 'Opa', 'Salve salve', 'Fala aí', 'Olá', 'Opa', 'Salve salve', 'Fala aí', 'Olá', 'Opa', 'Salve salve', 'Fala aí', 'Olá', 'Opa', 'Salve salve', 'Fala aí', );
-			$fala = array_rand($falas);
+			$falas = array('Olá', 'Opa', 'Salve salve', 'Fala aí', );
+			$keys = array_keys($falas);
+			suffle($keys);
+			$fala = array_rand($keys);
 			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => $falas[$fala] . ' ' . $member_name . "! \nSeja bem vindo(a) ao grupo!")); 
 		} else {
 			apiRequest("sendMessage", array('chat_id' => $chat_id, 'text' => "Olá, eu sou o @BoasVindasBot.\nQuando este grupo receber um novo membro, darei boas vindas a ele 😉"));
