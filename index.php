@@ -129,7 +129,7 @@ function processMessage($message) {
 		if ($member_user != 'BoasVindasBot') {
 			$falas = array('Olá', 'Opa', 'Salve salve', 'Fala aí', );
 			$keys = array_keys($falas);
-			suffle($keys);
+			shuffle($keys);
 			$fala = array_rand($keys);
 			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => $falas[$fala] . ' ' . $member_name . "! \nSeja bem vindo(a) ao grupo!")); 
 		} else {
