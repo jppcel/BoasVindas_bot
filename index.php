@@ -147,8 +147,10 @@ function processMessage($message) {
 			} else {
 				apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Você já me adicionou aqui 😄\nSempre que um novo membro entrar, darei boas vindas a ele.")); 
 			}
-		} else if (strpos($text, "puta")) {
+		} else if (stripos($text, "puta")) {
 			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Sua mãe que é uma puta! Quer cair na mão? Perdeu a noção do perigo?")); 
+		} else if (stripos($text, "koee") || stripos($text, "falae") || stripos($text, "blz") || stripos($text, "beleza") || stripos($text, "bem")) {
+			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Koee, ". $member_name."/nBeleza?")); 
 		}
 	}
 } 
