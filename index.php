@@ -129,7 +129,7 @@ function processMessage($message) {
 		if ($member_user != 'BoasVindasBot') {
 			$falas = array('Olá', 'Opa', 'Salve salve', 'Fala aí', );
 			$keys = array_keys($falas);
-			suffle($keys);
+			shuffle($keys);
 			$fala = array_rand($keys);
 			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => $falas[$fala] . ' ' . $member_name . "! \nSeja bem vindo(a) ao grupo!")); 
 		} else {
@@ -150,7 +150,7 @@ function processMessage($message) {
 		} else if (stripos($text, "puta")) {
 			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Sua mãe que é uma puta! Quer cair na mão? Perdeu a noção do perigo?")); 
 		} else if (stripos($text, "koee") || stripos($text, "falae") || stripos($text, "blz") || stripos($text, "beleza") || stripos($text, "bem")) {
-			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Koee, ". $user_name."\nBeleza?")); 
+			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Koee, ". $member_name."\nBeleza?")); 
 		}
 	}
 } 
