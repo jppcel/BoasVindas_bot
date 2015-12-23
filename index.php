@@ -122,12 +122,12 @@ function processMessage($message) {
 	$chat_id = $message['chat']['id']; 
 	$user_name = $message['from']['first_name'];
 
-	$member_name = $message['new_chat_participant']['first_name'];
-	$member_user = $message['new_chat_participant']['username'];
+	@$member_name = $message['new_chat_participant']['first_name'];
+	@$member_user = $message['new_chat_participant']['username'];
 
 	if (isset($member_name)) {
 		if ($member_user != 'BoasVindasBot') {
-			$falas = array('Olá', 'Opa', 'Salve salve', 'Fala aí', );
+			$falas = array('Olá', 'Opa', 'Salve salve', 'Fala aí');
 			$keys = array_keys($falas);
 			shuffle($keys);
 			$fala = array_rand($keys);
@@ -139,7 +139,6 @@ function processMessage($message) {
 
 	if (isset($message['text'])) {
 		$text = $message['text']; 
-
 		if (strpos($text, "/start") === 0) {
 			$type = $message['chat']['type'];
 			if($type == 'private') {
@@ -147,10 +146,6 @@ function processMessage($message) {
 			} else {
 				apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Você já me adicionou aqui 😄\nSempre que um novo membro entrar, darei boas vindas a ele.")); 
 			}
-		} else if (stripos($text, "puta")) {
-			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Sua mãe que é uma puta! Quer cair na mão? Perdeu a noção do perigo?")); 
-		} else if (stripos($text, "koee") || stripos($text, "falae") || stripos($text, "blz") || stripos($text, "beleza") || stripos($text, "bem")) {
-			apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => "Koee, ". $member_name."\nBeleza?")); 
 		}
 	}
 } 
