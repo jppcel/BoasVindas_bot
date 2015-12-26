@@ -1,2 +1,2 @@
 # BoasVindasBot
-http://telegram.me/BoasVindasBot
+http://telegram.me/BoasVindas_bot
